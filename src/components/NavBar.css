@@ -1,0 +1,21 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 60px;
+}
+
+header .logo{
+    border-radius: 10px;
+    font-size: 30px;
+    font-weight: 800;
+}
+header nav .CartButton{
+    display: flex;    
+}
+header nav a{
+    font-size: 20px;
+    font-weight: 600;
+}
+
