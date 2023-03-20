@@ -6,12 +6,14 @@ const Navbar = () => {
     return (
         <header>
         <div>
-        <Button className="logo" color="primary">JP HOBBY- OTAKU STORE</Button></div>
+        <Button className="logo" color="primary" href="/">JP HOBBY- OTAKU STORE</Button></div>
             <nav>
             <ButtonGroup variant="contained" aria-label="outlined primary button group">
-                <Button disabled><a>Inicio</a></Button>
-                <Button variant="outlined"><a>Productos</a></Button>
-                <Button variant="outlined"><a>Sobre nosotros</a></Button>
+                <Button href="/" variant="outlined">Inicio</Button>
+                <Button href="/productos" variant="outlined">Productos</Button>
+                <Button href="/nuevas" variant="outlined">Nuevas</Button>
+                <Button href="/usadas" variant="outlined">Usadas</Button>
+                <Button href="/quienes-somos" disabled variant="outlined">Sobre nosotros</Button>
                 <CartWidget />
             </ButtonGroup>
             </nav>
