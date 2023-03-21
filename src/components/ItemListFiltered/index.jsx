@@ -1,4 +1,4 @@
-import CardProduct from "../components/CardProduct";
+import CardProduct from "../CardProduct";
 import { Grid } from "@mui/material";
 
 const ItemListFiltered = ({products, estado}) => {

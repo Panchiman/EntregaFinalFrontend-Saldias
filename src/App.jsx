@@ -4,7 +4,7 @@ import ItemListContainer from './components/ItemListContainer';
 import { useEffect, useState } from 'react';
 import {Route, Routes} from "react-router-dom";
 import ProductItem from './components/ProductItem';
-import ItemListFiltered from './ItemListFiltered';
+import ItemListFiltered from './components/ItemListFiltered';
 import Index from './components/Index';
 
 function App() {
