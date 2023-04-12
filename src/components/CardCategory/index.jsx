@@ -6,9 +6,9 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-export default function CardCategory({nombre, imagen}) {
+export default function CardCategory({nombre, imagen, id}) {
     return (
-        <Link to={nombre}>
+        <Link to={id}>
         <Card sx={{ maxWidth: 345 }}>
         <CardActionArea>
             <CardMedia

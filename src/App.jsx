@@ -6,30 +6,39 @@ import {Route, Routes} from "react-router-dom";
 import ProductItem from './components/ProductItem';
 import ItemListFiltered from './components/ItemListFiltered';
 import Index from './components/Index';
+import db from '../db/firebase-config';
+import { collection, getDocs } from 'firebase/firestore';
+import { CartProvider } from './context/cartContext';
+import RegisterPage from '../Auth/RegisterPage';
 
 function App() {
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    fetch("https://mocki.io/v1/fcbfd3cd-3f3f-453b-8eee-9f205f02a649")
-    .then((response) => response.json())
-    .then((data) => setProducts(data))
-  }, [])
+  const [items, setItems] = useState([]);
+  const itemsRef = collection(db, "items");
   
+const getItems = async () => {
+  const itemCollection =  await getDocs(itemsRef)
+  const items = itemCollection.docs.map((doc) => ({...doc.data(), id: doc.id}))
+  setItems(items);
+}
+
+useEffect (() => {
+  getItems();
+}, []);
+
   return (
     <div>
-      <Navbar />
-      <Routes>
-      <Route path="/" element={<Index></Index>} />
-        <Route path="productos" element={<ItemListContainer products={products}/>} />
-        <Route path=":id" element={<ProductItem products={products}/>} />
-        <Route path="productos/:id" element={<ProductItem products={products}/>} />
-        <Route path="nuevas" element={<ItemListFiltered products={products} estado="no"/>} />
-        <Route path="/nuevas/:id" element={<ProductItem products={products}/>} />
-        <Route path="usadas" element={<ItemListFiltered products={products} estado="si"/>} />
-        <Route path="/usadas/:id" element={<ProductItem products={products}/>} />
-      </Routes>
+    <CartProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Index></Index>} />
+          <Route path="productos" element={<ItemListContainer items={items}/>} />
+          <Route path="category/:idCategory" element={<ItemListContainer items={items}/>} />
+          <Route path="productos/:idProduct" element={<ProductItem items={items}/>} />
+          <Route path="register" element ={RegisterPage}/>
+        </Routes>
+      </CartProvider>
         </div>
-  
+    
   )
 }
 

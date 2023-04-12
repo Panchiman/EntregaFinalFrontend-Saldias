@@ -6,9 +6,9 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-export default function CardProduct({product, id}) {
+export default function CardProduct({product}) {
     return (
-        <Link to={`${id}`}>
+        <Link to={"/productos/" + product.id}>
         <Card sx={{ maxWidth: 345 }}>
         <CardActionArea>
             <CardMedia

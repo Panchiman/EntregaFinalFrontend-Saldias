@@ -27,3 +27,6 @@ a:active{
     color: rgb(5, 0, 163);
 }
 
+.activeCategory{
+    color: red;
+}
