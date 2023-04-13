@@ -1,28 +1,28 @@
 import { Button, FormControl, TextField } from "@mui/material";
 import { useContext, useState } from "react";
 import { CartContext } from "../context/cartContext";
-import OrdenId from "../OrdenId";
+import CheckoutButton from "../CheckoutButton";
+import showAlert from "../showAlert";
+import "./Checkout.css";
 
 const Checkout = () => {
-    let CheckoutTotal = [];
+    let infoCliente = [];
     const {cart} = useContext(CartContext);
     const [nombre, setNombre] = useState("");
     const [email, setEmail] = useState("");
     const [email2, setEmail2] = useState("");
     const [telefono, setTelefono] = useState("");
-    const [checkout, setCheckout] = useState([]);
     const handleSubmit = () => {
         if (nombre && email && email2 && email == email2 && telefono && cart.length > 0) {
-            CheckoutTotal.push(nombre, email, telefono);
-            setCheckout(CheckoutTotal);
+            infoCliente.push(nombre, email, telefono);
+            CheckoutButton(infoCliente, cart);
         }
         else{
-            setCheckout([])
-            console.log (checkout)
+            showAlert("error")
         }
     }
     return (
-        <div>
+        <div className="formContainer">
             <FormControl fullWidth>
                 <TextField margin="normal"
                     required
@@ -76,9 +76,8 @@ const Checkout = () => {
                     autoComplete="tel"
                     autoFocus>
                 </TextField>
-                <Button onClick={handleSubmit}>Terminar la compra</Button>
+                <Button onClick={handleSubmit} variant="outlined">Terminar la compra</Button>
             </FormControl>
-            <OrdenId value={checkout} />
         </div>
     );
 }

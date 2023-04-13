@@ -1,0 +1,9 @@
+.formContainer{
+    display: flex;
+    align-items: center;
+    width: 80%;
+}
+
+.formButton{
+    font-weight: 700;
+}

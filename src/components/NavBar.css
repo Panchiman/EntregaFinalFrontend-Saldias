@@ -16,7 +16,7 @@ header nav .CartButton{
 }
 header nav a{
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 a{
@@ -27,9 +27,18 @@ a:active{
     color: rgb(5, 0, 163);
 }
 
-.activeCategory{
-    color: red;
+.navbarButtons a{
+    margin: 0 10px;
+    font-size: 20px;
+    font-weight: 500;
+    background-color: #F2F2F2;
+    padding: 10px;
+    border-radius: 15px;
 }
-a.active{
-    color: red;
+
+.navbarButtons a.active{
+    font-weight: 800;
+}
+.allNavbar{
+    display: flex;
 }
