@@ -13,28 +13,15 @@ import Cart from './components/Cart/Cart';
 import Checkout from './Checkout';
 
 function App() {
-  const [items, setItems] = useState([]);
-  const itemsRef = collection(db, "items");
-  
-const getItems = async () => {
-  const itemCollection =  await getDocs(itemsRef)
-  const items = itemCollection.docs.map((doc) => ({...doc.data(), id: doc.id}))
-  setItems(items);
-}
-
-useEffect (() => {
-  getItems();
-}, []);
-
   return (
     <div>
     <CartProvider>
         <Navbar />
         <Routes>
           <Route path="/" element={<Index></Index>} />
-          <Route path="productos" element={<ItemListContainer items={items}/>} />
-          <Route path="category/:idCategory" element={<ItemListContainer items={items}/>} />
-          <Route path="Item/:idProduct" element={<ProductItem items={items}/>} />
+          <Route path="productos" element={<ItemListContainer/>} />
+          <Route path="category/:idCategory" element={<ItemListContainer/>} />
+          <Route path="Item/:idProduct" element={<ProductItem/>} />
           <Route path="cart" element={<Cart/>} />
           <Route path="/quienes-somos" element={<h1>Quienes somos</h1>} />
           <Route path="checkout" element = {<Checkout/>} />
