@@ -9,7 +9,8 @@ import Index from './components/Index';
 import db from '../db/firebase-config';
 import { collection, getDocs } from 'firebase/firestore';
 import { CartProvider } from './context/cartContext';
-import RegisterPage from '../Auth/RegisterPage';
+import Cart from './components/Cart/Cart';
+import Checkout from './Checkout';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -33,8 +34,10 @@ useEffect (() => {
           <Route path="/" element={<Index></Index>} />
           <Route path="productos" element={<ItemListContainer items={items}/>} />
           <Route path="category/:idCategory" element={<ItemListContainer items={items}/>} />
-          <Route path="productos/:idProduct" element={<ProductItem items={items}/>} />
-          <Route path="register" element ={RegisterPage}/>
+          <Route path="Item/:idProduct" element={<ProductItem items={items}/>} />
+          <Route path="cart" element={<Cart/>} />
+          <Route path="/quienes-somos" element={<h1>Quienes somos</h1>} />
+          <Route path="checkout" element = {<Checkout/>} />
         </Routes>
       </CartProvider>
         </div>

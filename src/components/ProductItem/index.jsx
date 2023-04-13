@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import AddCartButton from "../AddCartButton";
 
 const ProductItem = ({items}) => {
     let { idProduct } = useParams();
@@ -14,6 +15,7 @@ const ProductItem = ({items}) => {
             <h4>Altura: {producto.altura} cm</h4>
             <h4>Usada: {producto.usada}</h4>
             <h4>Articulada: {producto.articulada}</h4>
+            <AddCartButton product={producto} />
         </div>
         );
     }

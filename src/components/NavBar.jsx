@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
     let activeStyle ={
-        textDecoration: "underline",
+        color: "red;",
     };
     return (
         <header>
@@ -13,7 +13,7 @@ const Navbar = () => {
         <NavLink className="logo" color="primary" to="/">JP HOBBY- OTAKU STORE</NavLink></div>
             <nav>
             <div>
-                <NavLink to="/" style ={({isActive}) => (isActive ? activeStyle : undefined)}>Inicio</NavLink>
+                <NavLink to="/">Inicio</NavLink>
                 <NavLink to="/productos" >Productos</NavLink>
                 <NavLink to="category/nuevas">Nuevas</NavLink>
                 <NavLink to="category/usadas">Usadas</NavLink>

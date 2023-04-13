@@ -16,7 +16,7 @@ header nav .CartButton{
 }
 header nav a{
     font-size: 20px;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 a{
@@ -28,5 +28,8 @@ a:active{
 }
 
 .activeCategory{
+    color: red;
+}
+a.active{
     color: red;
 }

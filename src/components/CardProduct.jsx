@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 export default function CardProduct({product}) {
     return (
-        <Link to={"/productos/" + product.id}>
+        <Link to={"/item/" + product.id}>
         <Card sx={{ maxWidth: 345 }}>
         <CardActionArea>
             <CardMedia
